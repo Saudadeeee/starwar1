@@ -17,7 +17,7 @@ class PlanetDetailPage extends StatelessWidget {
         child: Column(
           children: [
             Text('Planet Name: ${planet.name}', style: TextStyle(fontSize: 24)),
-            // Thêm các thuộc tính khác của hành tinh nếu cần
+           
           ],
         ),
       ),

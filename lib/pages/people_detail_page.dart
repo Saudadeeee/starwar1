@@ -17,7 +17,7 @@ class PeopleDetailPage extends StatelessWidget {
         child: Column(
           children: [
             Text('Character Name: ${person.name}', style: TextStyle(fontSize: 24)),
-            // Thêm các thuộc tính khác của nhân vật nếu cần
+            
           ],
         ),
       ),
