@@ -5,7 +5,17 @@ import 'ships_page.dart';
 import 'planets_page.dart';
 import 'people_page.dart';
 
-class HomePage extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'ships_page.dart';
+import 'planets_page.dart';
+import 'people_page.dart';
+
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -25,7 +35,9 @@ class HomePage extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(20.0),
-              child: Image.network('https://pyxis.nymag.com/v1/imgs/ad7/b0c/45991227b9e02cf0ef2a12405537944958-star-wars-tv-ranked.rhorizontal.w700.jpg'), // Thay thế bằng URL hình ảnh của bạn
+              child: Image.network(
+                'https://pyxis.nymag.com/v1/imgs/ad7/b0c/45991227b9e02cf0ef2a12405537944958-star-wars-tv-ranked.rhorizontal.w700.jpg',
+              ),
             ),
             Expanded(
               child: TabBarView(
@@ -42,3 +54,4 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+
