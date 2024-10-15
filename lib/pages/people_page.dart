@@ -3,6 +3,28 @@ import 'package:provider/provider.dart';
 import '../providers/star_wars_provider.dart';
 import 'people_detail_page.dart';
 
+
+
+// void main() {
+//   runApp(MyApp());
+// }
+
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return ChangeNotifierProvider(
+//       create: (context) => StarWarsProvider(),
+//       child: MaterialApp(
+//         title: 'Star Wars People',
+//         theme: ThemeData(
+//           primarySwatch: Colors.blue,
+//           scaffoldBackgroundColor: Colors.grey[200], // Set background color
+//         ),
+//         home: PeoplePage(),
+//       ),
+//     );
+//   }
+// }
 class PeoplePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -10,6 +32,7 @@ class PeoplePage extends StatelessWidget {
 
     return Center(
       child: Column(
+        
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           if (provider.isLoading)
