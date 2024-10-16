@@ -3,6 +3,9 @@ import 'package:provider/provider.dart';
 import 'providers/star_wars_provider.dart';
 import 'pages/home_page.dart';
 
+
+
+
 void main() {
   runApp(
     ChangeNotifierProvider(
