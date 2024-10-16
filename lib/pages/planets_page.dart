@@ -7,19 +7,20 @@ class PlanetsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<StarWarsProvider>(context);
-    
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          if (provider.isLoading)
-            CircularProgressIndicator(),
-          if (!provider.isLoading && provider.planets.isNotEmpty)
-            Column(
+
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        if (provider.isLoading) const CircularProgressIndicator(),
+        if (!provider.isLoading && provider.planets.isNotEmpty)
+          Expanded(
+            child: Column(
               children: [
-                Text('Data loaded successfully', style: TextStyle(fontSize: 20)),
+                const Text('Data loaded successfully', style: TextStyle(fontSize: 20)),
                 Expanded(
                   child: ListView.builder(
+                    shrinkWrap: true,
+                    physics: ClampingScrollPhysics(),
                     itemCount: provider.planets.length,
                     itemBuilder: (context, index) {
                       final planet = provider.planets[index];
@@ -37,14 +38,14 @@ class PlanetsPage extends StatelessWidget {
                 ),
               ],
             ),
-          ElevatedButton(
-            onPressed: () {
-              provider.fetchPlanets();
-            },
-            child: Text('Fetch Planets'),
           ),
-        ],
-      ),
+        ElevatedButton(
+          onPressed: () {
+            provider.fetchPlanets();
+          },
+          child: Text('Fetch Planets'),
+        ),
+      ],
     );
   }
 }
