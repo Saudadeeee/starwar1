@@ -8,18 +8,19 @@ class ShipsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = Provider.of<StarWarsProvider>(context);
     
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          if (provider.isLoading)
-            CircularProgressIndicator(),
-          if (!provider.isLoading && provider.ships.isNotEmpty)
-            Column(
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        if (provider.isLoading) const CircularProgressIndicator(),
+        if (!provider.isLoading && provider.ships.isNotEmpty)
+          Expanded(
+            child: Column(
               children: [
-                Text('Data loaded successfully', style: TextStyle(fontSize: 20)),
+                const Text('Data loaded successfully', style: TextStyle(fontSize: 20)),
                 Expanded(
                   child: ListView.builder(
+                    shrinkWrap: true,
+                    physics: ClampingScrollPhysics(),
                     itemCount: provider.ships.length,
                     itemBuilder: (context, index) {
                       final ship = provider.ships[index];
@@ -38,14 +39,14 @@ class ShipsPage extends StatelessWidget {
                 ),
               ],
             ),
-          ElevatedButton(
-            onPressed: () {
-              provider.fetchShips();
-            },
-            child: Text('Fetch Ships'),
           ),
-        ],
-      ),
+        ElevatedButton(
+          onPressed: () {
+            provider.fetchShips();
+          },
+          child: Text('Fetch Ships'),
+        ),
+      ],
     );
   }
 }
